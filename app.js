@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/family-tree')
+mongoose.connect('mongodb://localhost/users')
 
 // use the model from mongoose
 var User = require('./models/user.js')
