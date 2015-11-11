@@ -13,8 +13,13 @@ mongoose.connect('mongodb://localhost:27017/family-tree')
 // use the model from mongoose
 var User = require('./models/user.js')
 
-var Andy = new User({
-	first_name: "Andy",
-	last_name: "Kim",
-	email: "andykim@gmail.com"
+var newUser = new User({
+	first_name: "Kate",
+	last_name: "Wood",
+	email: "katewood@gmail.com"
+})
+
+newUser.save(function(err){
+	if (err) console.log(err)
+	console.log("User created")
 })
