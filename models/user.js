@@ -8,3 +8,5 @@ var userSchema = new mongoose.Schema({
 	email: {type: String, required: true, unique: true},
 	friends: []
 })
+
+var User = mongoose.model('User', userSchema)
