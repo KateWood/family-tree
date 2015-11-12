@@ -39,10 +39,10 @@ User.find({email: "katewood@gmail.com"}, function(err, user) {
 	console.log(user)
 })
 
-//update a user
-User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(err, updatedUser) {
+//update a user - console logs pre-change record
+User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(err, user) {
 	if (err) console.log(err)
-	console.log(updatedUser)
+	console.log(user)
 })
 
 //remove a user
