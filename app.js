@@ -1,7 +1,8 @@
 var express = require('express'),
 	logger	= require('morgan'),
  bodyParser = require('body-parser'),
-	app 	= express()
+	app 	= express(),
+	port 	= process.env.PORT || 3000
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -16,7 +17,7 @@ var User = require('./models/user.js')
 var newUser = new User({
 	first_name: "Kate",
 	last_name: "Wood",
-	email: "katie@gmail.com"
+	email: "kdub@gmail.com"
 })
 
 newUser.save(function(err){
@@ -26,9 +27,19 @@ newUser.save(function(err){
 
 newUser.sayHello()
 
+//find all users
 User.find({}, function(err, users) {
 	if (err) console.log(err)
 	console.log(users)
 })
 
-app.listen(3000)
+//find specific user
+User.find({email: "katewood@gmail.com"}, function(err, user) {
+	if (err) console.log(err)
+	console.log(user)
+})
+
+app.listen(port)
+
+
+
