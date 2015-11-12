@@ -45,6 +45,12 @@ User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(e
 	console.log(updatedUser)
 })
 
+//remove a user
+User.remove({email: "kwf@gmail.com"}, function(err, res) {
+	if (err) console.log(err)
+	console.log("User deleted")
+})
+
 app.listen(port)
 
 
