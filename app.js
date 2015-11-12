@@ -16,10 +16,12 @@ var User = require('./models/user.js')
 var newUser = new User({
 	first_name: "Kate",
 	last_name: "Wood",
-	email: "katewood@gmail.com"
+	email: "kate@gmail.com"
 })
 
 newUser.save(function(err){
 	if (err) console.log(err)
 	console.log("User created")
 })
+
+newUser.sayHello()

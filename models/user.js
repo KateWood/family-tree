@@ -9,6 +9,10 @@ var userSchema = new mongoose.Schema({
 	friends: []
 })
 
+userSchema.methods.sayHello = function() {
+	console.log("Hi " + this.first_name)
+}
+
 var User = mongoose.model('User', userSchema)
 
 module.exports = User
