@@ -15,48 +15,55 @@ mongoose.connect('mongodb://localhost/users')
 // use the model from mongoose
 var User = require('./models/user.js')
 
-var newUser = new User({
-	first_name: "Kate",
-	last_name: "Wood",
-	email: "cgw@gmail.com"
-})
+// var newUser = new User({
+// 	first_name: "Kate",
+// 	last_name: "Wood",
+// 	email: "cgw@gmail.com"
+// })
 
-newUser.save(function(err){
-	if (err) console.log(err)
-	console.log("User created")
-})
+// newUser.save(function(err){
+// 	if (err) console.log(err)
+// 	console.log("User created")
+// })
 
-newUser.sayHello()
+// newUser.sayHello()
 
-//find all users
-User.find({}, function(err, users) {
-	if (err) console.log(err)
-	console.log(users)
-})
+// //find all users
+// User.find({}, function(err, users) {
+// 	if (err) console.log(err)
+// 	console.log(users)
+// })
 
-//find specific user
-User.find({email: "katewood@gmail.com"}, function(err, user) {
-	if (err) console.log(err)
-	console.log(user)
-})
+// //find specific user
+// User.find({email: "katewood@gmail.com"}, function(err, user) {
+// 	if (err) console.log(err)
+// 	console.log(user)
+// })
 
-//update a user - console logs pre-change record
-User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(err, user) {
-	if (err) console.log(err)
-	console.log(user)
-})
+// //update a user - console logs pre-change record
+// User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(err, user) {
+// 	if (err) console.log(err)
+// 	console.log(user)
+// })
 
-//remove a user
-User.remove({email: "kw@gmail.com"}, function(err, user) {
-	if (err) console.log(err)
-	console.log("User deleted")
-})
+// //remove a user
+// User.remove({email: "kw@gmail.com"}, function(err, user) {
+// 	if (err) console.log(err)
+// 	console.log("User deleted")
+// })
 
 //routes
 router.get('/users', function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) console.log(err)
 		res.json(users)
+	})
+})
+
+router.get('/users/:email', function(req, res) {
+	User.find({email: req.params.email}, function(err, user) {
+		if (err) console.log(err)
+		res.json(user)
 	})
 })
 
