@@ -52,6 +52,16 @@ User.remove({email: "kw@gmail.com"}, function(err, user) {
 	console.log("User deleted")
 })
 
+//routes
+router.get('/users', function(req, res) {
+	User.find({}, function(err, users) {
+		if (err) console.log(err)
+		res.json(users)
+	})
+})
+
+app.use('/', router)
+
 app.listen(port)
 
 
