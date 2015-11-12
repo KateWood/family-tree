@@ -16,7 +16,7 @@ var User = require('./models/user.js')
 var newUser = new User({
 	first_name: "Kate",
 	last_name: "Wood",
-	email: "kate@gmail.com"
+	email: "katie@gmail.com"
 })
 
 newUser.save(function(err){
@@ -25,3 +25,10 @@ newUser.save(function(err){
 })
 
 newUser.sayHello()
+
+User.find({}, function(err, users) {
+	if (err) console.log(err)
+	console.log(users)
+})
+
+app.listen(3000)
