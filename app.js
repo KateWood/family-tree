@@ -2,7 +2,8 @@ var express = require('express'),
 	logger	= require('morgan'),
  bodyParser = require('body-parser'),
 	app 	= express(),
-	port 	= process.env.PORT || 3000
+	port 	= process.env.PORT || 3000,
+	router	= express.Router()
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
