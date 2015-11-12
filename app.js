@@ -17,7 +17,7 @@ var User = require('./models/user.js')
 var newUser = new User({
 	first_name: "Kate",
 	last_name: "Wood",
-	email: "kdub@gmail.com"
+	email: "cgw@gmail.com"
 })
 
 newUser.save(function(err){
@@ -37,6 +37,12 @@ User.find({}, function(err, users) {
 User.find({email: "katewood@gmail.com"}, function(err, user) {
 	if (err) console.log(err)
 	console.log(user)
+})
+
+//update a user
+User.update({email: "kdub@gmail.com"}, {$set: {first_name: "Katie"}}, function(err, updatedUser) {
+	if (err) console.log(err)
+	console.log(updatedUser)
 })
 
 app.listen(port)
